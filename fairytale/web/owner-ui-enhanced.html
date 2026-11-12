@@ -1,0 +1,1600 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Fairytale Nails Owner Portal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #faf8f3;
+        --card: #fff;
+        --ink: #2e3328;
+        --head: #7a6a48;
+        --mute: #6f7466;
+        --sage: #dde6d2;
+        --deep: #4e6240;
+        --red: #c43d36;
+        --pink: #fbe6e6;
+        --beige: #f0ebdc;
+        --line: #e8e4d8;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #1c1f18;
+          --card: #262a21;
+          --ink: #eef0e6;
+          --head: #d6c79c;
+          --mute: #a9ae9c;
+          --sage: #2f3a28;
+          --deep: #6f8a5a;
+          --red: #e8625b;
+          --pink: #3a2626;
+          --beige: #2d2b21;
+          --line: #3a3e32;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #1c1f18;
+        --card: #262a21;
+        --ink: #eef0e6;
+        --head: #d6c79c;
+        --mute: #a9ae9c;
+        --sage: #2f3a28;
+        --deep: #6f8a5a;
+        --red: #e8625b;
+        --pink: #3a2626;
+        --beige: #2d2b21;
+        --line: #3a3e32;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          14px/1.55 Poppins,
+          system-ui,
+          sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      .ttl {
+        font-family: "DM Serif Display", Georgia, serif;
+        font-weight: 400;
+        color: var(--head);
+        margin: 0 0 0.4em;
+        line-height: 1.1;
+      }
+      h1 {
+        font-size: clamp(2.4rem, 7vw, 4rem);
+      }
+      h2 {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+      }
+      h3 {
+        font-size: 1.25rem;
+      }
+      small,
+      .mute {
+        color: var(--mute);
+        font-size: 0.8rem;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+      .btn {
+        border: 0;
+        border-radius: 10px;
+        padding: 0.6rem 1.1rem;
+        background: var(--red);
+        color: #fff;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .btn.w {
+        background: var(--card);
+        color: var(--ink);
+        box-shadow: 0 0 0 1px var(--line);
+      }
+      .btn.sm {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+        border-radius: 8px;
+      }
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible {
+        outline: 2px solid var(--deep);
+        outline-offset: 2px;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.7rem 1.4rem;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 5;
+        flex-wrap: wrap;
+      }
+      .top nav {
+        display: flex;
+        gap: 1.4rem;
+        margin: 0 auto;
+      }
+      .top nav a {
+        cursor: pointer;
+        color: var(--ink);
+        padding-bottom: 3px;
+        border-bottom: 2px solid transparent;
+      }
+      .top nav a.on {
+        border-color: var(--red);
+      }
+      .logo {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+        cursor: pointer;
+      }
+      .logo i {
+        font:
+          italic 1.3rem "DM Serif Display",
+          serif;
+        color: var(--head);
+        display: block;
+        line-height: 1;
+      }
+      .logo small {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
+        display: block;
+      }
+      .lg {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--pink);
+        display: grid;
+        place-items: center;
+        font:
+          italic 1.3rem "DM Serif Display",
+          serif;
+        color: var(--red);
+      }
+      .hero {
+        background: var(--sage);
+        padding: 3rem 1.4rem;
+      }
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+      }
+      .two {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .hero h1 em {
+        color: var(--red);
+      }
+      .tag {
+        display: inline-block;
+        background: var(--card);
+        border-radius: 99px;
+        padding: 0.25rem 0.8rem;
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .arch {
+        width: min(100%, 290px);
+        aspect-ratio: 3/4;
+        border-radius: 145px 145px 24px 24px;
+        background: var(--pink);
+        display: grid;
+        place-items: center;
+        margin-left: auto;
+      }
+      .bot i {
+        display: block;
+        width: 34px;
+        height: 40px;
+        background: #e6c9b4;
+        margin: 0 auto;
+        border-radius: 6px 6px 0 0;
+      }
+      .bot b {
+        display: grid;
+        place-items: center;
+        width: 112px;
+        height: 122px;
+        border-radius: 22px;
+        background: linear-gradient(145deg, #f09aa6, #d9708a);
+        color: #fff;
+        font:
+          italic 1.3rem "DM Serif Display",
+          serif;
+      }
+      .sec {
+        padding: 3rem 1.4rem;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1rem;
+      }
+      .fav {
+        border-radius: 18px;
+        padding: 1.2rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        cursor: pointer;
+        border: 0;
+        text-align: left;
+        color: var(--ink);
+        width: 100%;
+      }
+      .fav .ic {
+        width: 54px;
+        height: 64px;
+        border-radius: 27px 27px 10px 10px;
+        background: var(--bg);
+        display: grid;
+        place-items: center;
+        color: var(--red);
+        font-size: 1.3rem;
+        flex: none;
+      }
+      .band {
+        background: var(--deep);
+        color: #fff;
+        padding: 3rem 1.4rem;
+        text-align: center;
+      }
+      .band h2 {
+        color: #fff;
+      }
+      .steps4 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 1.4rem;
+        text-align: left;
+        margin-top: 2rem;
+      }
+      .steps4 b {
+        display: inline-grid;
+        place-items: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--pink);
+        color: var(--deep);
+        font-size: 0.7rem;
+      }
+      .steps4 h3 {
+        color: #fff;
+        margin: 0.6rem 0 0.2rem;
+        font-size: 1.1rem;
+      }
+      .steps4 p {
+        margin: 0;
+        font-size: 0.8rem;
+        opacity: 0.8;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 2rem 1.4rem;
+        border-top: 1px solid var(--line);
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.1rem;
+      }
+      .tabs {
+        display: flex;
+        border-bottom: 1px solid var(--line);
+        margin: 1rem 0;
+      }
+      .tabs button {
+        flex: 1;
+        background: none;
+        border: 0;
+        border-bottom: 3px solid transparent;
+        padding: 0.6rem;
+        color: var(--mute);
+        cursor: pointer;
+      }
+      .tabs .on {
+        color: var(--ink);
+        border-color: var(--ink);
+        font-weight: 600;
+      }
+      .pr {
+        color: var(--red);
+        font-weight: 600;
+      }
+      .chips {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 0.8rem 0;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        background: var(--card);
+        color: var(--ink);
+        border-radius: 99px;
+        padding: 0.35rem 0.9rem;
+        cursor: pointer;
+      }
+      .chip.on {
+        background: var(--deep);
+        color: #fff;
+        border-color: var(--deep);
+      }
+      .chip:disabled {
+        opacity: 0.35;
+        text-decoration: line-through;
+      }
+      .opt {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        text-align: left;
+        color: var(--ink);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.6rem;
+        cursor: pointer;
+      }
+      .opt.on {
+        border-color: var(--deep);
+        box-shadow: 0 0 0 2px var(--deep);
+      }
+      .sp {
+        display: flex;
+        gap: 0.8rem;
+        overflow-x: auto;
+      }
+      .sp button {
+        flex: 0 0 120px;
+        text-align: center;
+        color: var(--ink);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 0.8rem;
+        cursor: pointer;
+      }
+      .sp .on {
+        border-color: var(--deep);
+        box-shadow: 0 0 0 2px var(--deep);
+      }
+      .av {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        margin: 0 auto 0.3rem;
+        display: grid;
+        place-items: center;
+        background: var(--pink);
+        color: var(--deep);
+        font-weight: 600;
+      }
+      .cal {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4px;
+        text-align: center;
+        max-width: 360px;
+      }
+      .cal b {
+        font-size: 0.75rem;
+        color: var(--mute);
+      }
+      .cal button {
+        aspect-ratio: 1;
+        border: 0;
+        border-radius: 50%;
+        background: none;
+        color: var(--ink);
+        cursor: pointer;
+      }
+      .cal .on {
+        background: var(--red);
+        color: #fff;
+      }
+      .cal button:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+      label {
+        display: block;
+        margin: 0.7rem 0 0.2rem;
+        font-weight: 500;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 0.55rem 0.7rem;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        color: var(--ink);
+      }
+      .msg {
+        padding: 0.6rem 0.9rem;
+        border-radius: 10px;
+        margin: 0.7rem 0;
+        background: var(--pink);
+        color: var(--red);
+      }
+      .ok {
+        background: var(--sage);
+        color: var(--deep);
+      }
+      .row {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .shell {
+        display: grid;
+        grid-template-columns: 210px 1fr;
+        min-height: 100vh;
+      }
+      aside {
+        background: color-mix(in srgb, var(--sage) 40%, var(--bg));
+        border-right: 1px solid var(--line);
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      aside .nv {
+        padding: 0.5rem 0.7rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      aside .nv.on {
+        background: var(--card);
+        font-weight: 600;
+        box-shadow: 0 0 0 1px var(--line);
+      }
+      aside .me {
+        margin-top: auto;
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+      }
+      .bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--line);
+        background: var(--card);
+      }
+      .pad {
+        padding: 1.5rem;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 1rem;
+        margin: 1.2rem 0;
+      }
+      .stat b {
+        font-size: 1.7rem;
+        display: block;
+        line-height: 1.2;
+      }
+      .stat.dk {
+        background: var(--deep);
+        color: #fff;
+        border: 0;
+      }
+      .stat.dk small {
+        color: #dfe8d4;
+      }
+      .tbl {
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 620px;
+      }
+      th {
+        background: var(--bg);
+        color: var(--mute);
+        font-weight: 400;
+        font-size: 0.75rem;
+      }
+      td,
+      th {
+        padding: 0.6rem 0.7rem;
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.82rem;
+      }
+      .pill {
+        border-radius: 99px;
+        padding: 0.15rem 0.6rem;
+        font-size: 0.72rem;
+        font-weight: 500;
+        background: var(--pink);
+        color: var(--red);
+      }
+      .pill.service,
+      .pill.completed {
+        background: var(--sage);
+        color: var(--deep);
+      }
+      .pill.pending,
+      .pill.waiting {
+        background: var(--beige);
+        color: var(--head);
+      }
+      .seg {
+        display: flex;
+        gap: 6px;
+      }
+      .seg i {
+        height: 7px;
+        flex: 1;
+        max-width: 60px;
+        border-radius: 9px;
+        background: var(--line);
+      }
+      .seg i.f {
+        background: var(--deep);
+      }
+      .g2 {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .chart {
+        display: flex;
+        align-items: flex-end;
+        gap: 6px;
+        height: 170px;
+      }
+      .chart i {
+        flex: 1;
+        background: var(--deep);
+        border-radius: 3px 3px 0 0;
+        opacity: 0.85;
+      }
+      .chart i.lo {
+        background: var(--red);
+      }
+      .heat {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 6px;
+      }
+      .heat i {
+        height: 44px;
+        border-radius: 6px;
+        background: var(--deep);
+      }
+
+      @media (max-width: 760px) {
+        .two,
+        .g2 {
+          grid-template-columns: 1fr;
+        }
+        .arch {
+          margin: 0;
+        }
+        .shell {
+          grid-template-columns: 1fr;
+        }
+        aside {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+        aside .me {
+          display: none;
+        }
+      }
+      .btn.o {
+        background: none;
+        color: var(--red);
+        box-shadow: inset 0 0 0 1px var(--red);
+      }
+      .tag {
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+      }
+      .ph {
+        position: relative;
+        border-radius: 22px;
+        overflow: hidden;
+        background: var(--beige);
+      }
+      .ph img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .ph span {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        background: rgba(255, 255, 255, 0.93);
+        color: #2a2a2a;
+        border-radius: 99px;
+        padding: 0.18rem 0.7rem;
+        font-size: 0.7rem;
+        font-weight: 500;
+      }
+      .hp {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+      .hp > div {
+        display: grid;
+        gap: 14px;
+      }
+      .hp > div + div {
+        margin-top: 44px;
+      }
+      .t1 {
+        aspect-ratio: 271/320;
+      }
+      .t3 {
+        aspect-ratio: 271/230;
+      }
+      .gal {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        align-items: start;
+      }
+      .ph.a {
+        aspect-ratio: 361/246;
+      }
+      .ph.b {
+        aspect-ratio: 361/213;
+        margin-top: 17px;
+      }
+      .ph.c {
+        aspect-ratio: 361/214;
+      }
+      @media (max-width: 760px) {
+        .gal {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ph.b {
+          margin-top: 0;
+        }
+        .hp {
+          margin-top: 1rem;
+        }
+      }
+      .mb {
+        position: fixed;
+        inset: 0;
+        background: #0007;
+        display: grid;
+        place-items: center;
+        z-index: 20;
+        padding: 1rem;
+      }
+      .mc {
+        background: var(--card);
+        color: var(--ink);
+        border-radius: 16px;
+        padding: 1.4rem;
+        width: min(460px, 100%);
+        max-height: 90vh;
+        overflow: auto;
+      }
+      .mc.rc {
+        width: 340px;
+      }
+      .mc hr {
+        border: 0;
+        border-top: 1px dashed var(--line);
+        margin: 0.7rem 0;
+      }
+      .mc h3 {
+        margin-bottom: 0.5rem;
+      }
+      textarea {
+        color: var(--ink);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+      .pill.noshow,
+      .pill.cancelled,
+      .pill.expired,
+      .pill.refunded {
+        background: var(--pink);
+        color: var(--red);
+      }
+      @media print {
+        .noprint,
+        header.top,
+        .foot {
+          display: none !important;
+        }
+        .shell {
+          display: block;
+        }
+        body.rcp #app {
+          display: none;
+        }
+        body.rcp .mb {
+          position: static;
+          background: none;
+        }
+        body {
+          background: #fff;
+          padding: 0;
+        }
+      }
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #33362e;
+        color: #fff;
+        border-radius: 99px;
+        padding: 0.6rem 1.2rem;
+        z-index: 30;
+      }
+      .pill.voided {
+        background: var(--pink);
+        color: var(--red);
+      }
+    
+      /* Additional service-preview and sign-in styling from the updated owner design. */
+      .svt { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; display: block; background: var(--beige); }
+      .svr { display: flex; gap: .8rem; align-items: center; min-width: 0; }
+      .svr > span { min-width: 0; }
+      .auth { padding: 1.6rem; }
+      .auth h2 { margin-top: 0; }
+      .pwrow { position: relative; }
+      .pwrow input { padding-right: 4.6rem; }
+      .pwrow .eye { position:absolute; right:.35rem; top:50%; transform:translateY(-50%); border:0; background:none; color:var(--deep); font-weight:600; cursor:pointer; padding:.4rem .6rem; }
+
+    </style>
+  </head>
+  <body>
+    <script src="./js/loader.js"></script>
+    <div id="app"></div>
+    <div id="md"></div>
+    <script>window.FNready = new Promise((r) => (window.__fnReady = r));</script>
+    <script type="module">
+      import * as auth from "./js/auth.js";
+      import { loadCatalog } from "./js/catalog.js";
+      import * as owner from "./js/owner.js";
+      import { watchOwnerBoard } from "./js/realtime.js";
+      // Loader.wrap() puts the loading screen in front of EVERY async call (FN.raw = same calls, silent).
+      window.FN = (window.Loader ? Loader.wrap : (x) => x)({ ...auth, ...owner, loadCatalog, watchOwnerBoard });
+      window.__fnReady();
+    </script>
+    <script>
+      const $ = (q) => document.querySelector(q),
+        php = (n) => "₱" + Math.round(n).toLocaleString(),
+        pad = (n) => String(n).padStart(2, "0"),
+        fmt = (d) =>
+          d.getFullYear() +
+          "-" +
+          pad(d.getMonth() + 1) +
+          "-" +
+          pad(d.getDate()),
+        today = () => fmt(new Date()),
+        esc = (s) =>
+          String(s ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/"/g, "&quot;")
+            .replace(/</g, "&lt;"),
+        key = (a) => a.date + String(a.start).padStart(4, "0");
+      const m2t = (m) => {
+        const h = Math.floor(m / 60);
+        return (h % 12 || 12) + ":" + pad(m % 60) + (h < 12 ? " AM" : " PM");
+      };
+      const durT = (m) =>
+        m >= 60
+          ? +(m / 60).toFixed(2) + (m === 60 ? " hr" : " hrs")
+          : m + " min";
+
+      const hsl = (h, s, l) => {
+        s /= 100; l /= 100;
+        const a = s * Math.min(l, 1 - l);
+        const f = n => {
+          const k = (n + h / 30) % 12;
+          const c = l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+          return Math.round(255 * c).toString(16).padStart(2, "0");
+        };
+        return "#" + f(0) + f(8) + f(4);
+      };
+      const svgArt = (s) => {
+        const n = String(s.n || ""), g = String(s.g || "");
+        const hue = (n.length * 37 + g.length * 11 + (Number(s.id) || 0) * 17) % 360;
+        const colors = [
+          hsl(hue, 68, 76), hsl((hue + 35) % 360, 62, 70),
+          hsl((hue + 320) % 360, 58, 82), hsl((hue + 70) % 360, 55, 74),
+          hsl((hue + 200) % 360, 50, 80)
+        ];
+        const bg = hsl(hue, 45, 94), skin = "#f2cdb8";
+        const isGel = /Gel|BIAB|Soft|Luxury|Glam|Self-Care|Pamper/i.test(n);
+        const isExtension = /Extension|BIAB|Luxury/i.test(n);
+        const isFoot = /Pedi|Footspa/i.test(n) && !/Mani/i.test(n);
+        const isRemoval = g === "Removal" || /Remov/i.test(n);
+        const isKids = /Kids/i.test(n);
+        const isPackage = g === "Packages" || /\+/.test(n);
+        const star = (x, y, r) =>
+          `<path d="M${x} ${y-r}L${x+r*.3} ${y-r*.3}L${x+r} ${y}L${x+r*.3} ${y+r*.3}L${x} ${y+r}L${x-r*.3} ${y+r*.3}L${x-r} ${y}L${x-r*.3} ${y-r*.3}Z" fill="#fff" opacity=".9"/>`;
+        let art = `<rect width="160" height="120" fill="${bg}"/><circle cx="140" cy="18" r="30" fill="${colors[2]}" opacity=".5"/><circle cx="14" cy="108" r="26" fill="${colors[1]}" opacity=".35"/>`;
+        if (isFoot) {
+          art += `<ellipse cx="80" cy="88" rx="44" ry="26" fill="${skin}"/>`;
+          art += [0,1,2,3,4].map(i => {
+            const x = 44 + i * 18, y = 52 + Math.abs(i - 1) * 5 - (i === 0 ? 4 : 0);
+            return `<circle cx="${x}" cy="${y}" r="${i===0?10:8}" fill="${skin}"/><circle cx="${x}" cy="${y-3}" r="${i===0?6:4.5}" fill="${colors[i%5]}"/>${isGel?`<circle cx="${x-2}" cy="${y-5}" r="1.6" fill="#fff" opacity=".8"/>`:""}`;
+          }).join("");
+          if (/Footspa/i.test(n)) art += `<path d="M10 100Q30 90 50 100T90 100T130 100T170 100V120H10Z" fill="#8ec9e6" opacity=".8"/>`;
+        } else if (isRemoval) {
+          art += `<rect x="64" y="40" width="32" height="64" rx="16" fill="${skin}"/><rect x="68" y="44" width="24" height="26" rx="10" fill="#f6e3d8"/><ellipse cx="108" cy="78" rx="22" ry="14" fill="#fff"/><path d="M40 30Q44 40 40 46Q36 40 40 30Z" fill="#7fc4e8"/>${star(122,38,7)}`;
+        } else {
+          const heights = [50,66,74,64,46];
+          art += heights.map((height, i) => {
+            const x = 18 + i * 28, y = 100 - height, nailHeight = (isExtension ? 36 : isKids ? 18 : 24) + (i === 2 ? 4 : 0);
+            const color = colors[(i + (isKids ? 1 : 0)) % 5];
+            return `<rect x="${x}" y="${y}" width="24" height="${height+24}" rx="12" fill="${skin}"/>${isExtension?`<path d="M${x+3} ${y+nailHeight} Q${x+3} ${y-10} ${x+12} ${y-14} Q${x+21} ${y-10} ${x+21} ${y+nailHeight}Z" fill="${color}"/>`:`<rect x="${x+3}" y="${y+4}" width="18" height="${nailHeight}" rx="8" fill="${color}"/>`}${isGel?`<rect x="${x+6}" y="${y+7}" width="3.5" height="${Math.max(8,nailHeight-8)}" rx="2" fill="#fff" opacity=".65"/>`:""}`;
+          }).join("");
+          if (isKids) art += star(132,26,9) + star(24,28,6);
+        }
+        if (isPackage) art += star(138,30,10) + star(22,24,7) + star(128,96,6);
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120">${art}</svg>`;
+        return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+      };
+      const svImg = (s) => {
+        const candidate = s.image_url || s.imageUrl || s.photo_url || s.img || "";
+        return typeof candidate === "string" && /^(https?:\/\/|data:image\/)/i.test(candidate)
+          ? candidate
+          : svgArt(s);
+      };
+      function togglePassword(id, button) {
+        const input = document.getElementById(id);
+        if (!input) return;
+        input.type = input.type === "password" ? "text" : "password";
+        if (button) button.textContent = input.type === "password" ? "Show" : "Hide";
+      }
+
+      const GR = [
+          "Basic Care",
+          "Gel Services",
+          "Relaxation",
+          "Nail Enhancements",
+          "Packages",
+          "Removal",
+          "Nail Art Add-Ons",
+          "Per Nail Add-Ons",
+        ],
+        GN = {
+          "Per Nail Add-Ons":
+            "Price per nail. Only applies if you prefer not to get a full set of nail art.",
+        };
+      const SV = [],
+        TE0 = [];
+      const NM = [
+          "Ana Lopez",
+          "Rica Dela Cruz",
+          "Mara Uy",
+          "Lia Santos",
+          "Pia Gomez",
+          "Tess Ong",
+          "Kaye Ruiz",
+          "Jo Bautista",
+        ],
+        END = ["cancelled", "noshow", "refunded", "voided"];
+      // In-memory view of server data, hydrated by boot(). Nothing is persisted in localStorage.
+      let DB = {
+        SV, TE: TE0, CATS: [], hours: { o: 600, c: 1110, ls: 720, le: 780 }, openDays: [1, 2, 3, 4, 5, 6],
+        owner: null, sms: [], off: [], appts: [], q: [], users: [], staff: [], backup: null,
+      };
+      const TE = DB.TE,
+        OWN = { name: "", user: "", pass: "" };
+      const save = () => {};
+      let OWNP = null;
+      const DEMO = false,
+        OWNR = () => OWNP;
+      const actor = () =>
+        typeof ST !== "undefined" && ST
+          ? ST.name
+          : typeof U !== "undefined" && U
+            ? "Customer: " + (U.name || U.user)
+            : "System";
+      const logH = (a, act, by) => {
+        (a.hist = a.hist || []).push({ act, by: by || actor(), t: Date.now() });
+      };
+      function sms(a, type, msg) {
+        DB.sms = DB.sms || [];
+        DB.sms.push({ t: Date.now(), to: a.phone, code: a.code, type, msg });
+        if (DB.sms.length > 200) DB.sms.splice(0, DB.sms.length - 200);
+        save();
+      }
+      const SVA = () => DB.SV.filter((s) => s.on !== false),
+        hhmm = (m) => pad(Math.floor(m / 60)) + ":" + pad(m % 60),
+        DN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const openTxt = () => {
+        const d = [...DB.openDays].sort((a, b) => a - b),
+          r = [];
+        d.forEach((x) => {
+          const l = r[r.length - 1];
+          if (l && l[1] === x - 1) l[1] = x;
+          else r.push([x, x]);
+        });
+        return (
+          r
+            .map(([a, b]) =>
+              a === b
+                ? DN[a]
+                : b === a + 1
+                  ? DN[a] + " and " + DN[b]
+                  : DN[a] + " to " + DN[b],
+            )
+            .join(", ") || "by appointment"
+        );
+      };
+      function dl(name, text, type) {
+        try {
+          const u = URL.createObjectURL(new Blob([text], { type }));
+          const a = document.createElement("a");
+          a.href = u;
+          a.download = name;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(u), 1500);
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+      const sess = () => null,
+        setSess = () => {},
+        clearSess = () => {};
+      async function showH(id) {
+        const a = DB.appts.find((x) => x.id === id);
+        let L = [];
+        try { L = await FN.appointmentHistory(id); } catch (e) {}
+        modal(
+          `<h3>History</h3><p class="mute">${esc(a.name)} · ${esc(a.svc)} · ${a.date} ${m2t(a.start)}</p>${L.map((h) => `<div class="row" style="border-top:1px solid var(--line);padding:.5rem 0;align-items:flex-start"><span>${esc(h.action)}<br><small>Handled by ${esc(h.actor_name || "System")}</small></span><small>${new Date(h.created_at).toLocaleString()}</small></div>`).join("") || '<p class="mute">No recorded actions yet.</p>'}${MF(`<button class="btn w" onclick="modal()">Close</button>`)}`,
+        );
+      }
+      const NAVS = {
+        staff: [
+          ["dash", "Dashboard"],
+          ["appts", "Appointments & Queue"],
+          ["cust", "Customer Records"],
+          ["bill", "Billing & Payment"],
+        ],
+        owner: [
+          ["dash", "Dashboard"],
+          ["appts", "Appointments"],
+          ["cust", "Customer Records"],
+          ["tx", "Transactions"],
+          ["rep", "Reports & Analytics"],
+          ["hs", "Hours, Services & Days Off"],
+          ["team", "Staff & Technicians"],
+          ["comm", "Commission Reports"],
+          ["bk", "Backup"],
+        ],
+      };
+      let V = "customer",
+        P = "home",
+        U = null,
+        ST = null,
+        OW = 0,
+        B = { step: 0 },
+        tab = GR[0],
+        MT = "Upcoming",
+        F = { q: "", s: "", k: "time", c: "" },
+        BL = { a: "", n: "", items: {}, m: "cash" },
+        PD = 30,
+        RG = null,
+        CM = { t: 1, f: "", e: "" };
+      V = "owner";
+      P = "dash";
+      {
+        const SS = sess();
+        if (OWNR() && SS && SS.role === "owner") OW = 1;
+      }
+      let HE = "";
+      const te = (id) => (TE.find((x) => x.id === id) || { n: "Unassigned" }).n,
+        LB = {
+          pending: "Awaiting deposit",
+          expired: "Expired",
+          confirmed: "Confirmed",
+          waiting: "Waiting",
+          service: "In service",
+          completed: "Completed",
+          cancelled: "Cancelled",
+          noshow: "No-show",
+          refunded: "Refunded",
+          voided: "Voided",
+        };
+      const pill = (s) => `<span class="pill ${s}">${LB[s]}</span>`,
+        rev = (a) => (a.status === "completed" ? (a.total ?? a.price) : 0);
+      const modal = (h) => {
+        document.body.classList.remove("rcp");
+        $("#md").innerHTML = h
+          ? `<div class="mb" onclick="if(event.target===this)modal()"><div class="mc">${h}</div></div>`
+          : "";
+      };
+      const MF = (c) =>
+        `<p class="row" style="justify-content:flex-end;margin-bottom:0">${c}</p>`;
+      function go(p) {
+        P = p;
+        if (p === "book" && B.done) B = { step: 0 };
+        render();
+        scrollTo(0, 0);
+      }
+      const prs = (s) =>
+          s.px ? php(s.p) + " to " + php(s.px) : s.p ? php(s.p) : "FREE",
+        dus = (s) =>
+          (s.dx ? durT(s.d) + " to " + durT(s.dx) : durT(s.d)) +
+          (s.x ? " · " + s.x : "");
+      const fld = (id, l, t = "text", v = "") =>
+        `<label>${l}</label><input id="${id}" type="${t}" value="${esc(v)}">`;
+      const dAgo = (n) => {
+          const d = new Date();
+          d.setDate(d.getDate() - n);
+          return fmt(d);
+        },
+        inR = (a, f, t) => a.date >= f && a.date <= t;
+      function odash() {
+        const f = dAgo(PD - 1),
+          L = DB.appts.filter((a) => inR(a, f, today())),
+          D = L.filter((a) => a.status === "completed"),
+          ns = L.filter((a) => a.status === "noshow").length,
+          pop = {},
+          hr = {};
+        D.forEach((a) => {
+          a.items.forEach((i) => (pop[i] = (pop[i] || 0) + 1));
+          const h = Math.floor(a.start / 60);
+          hr[h] = (hr[h] || 0) + 1;
+        });
+        const tp = Object.entries(pop).sort((a, b) => b[1] - a[1])[0],
+          bh = Object.entries(hr).sort((a, b) => b[1] - a[1])[0],
+          w = new Date().getDay();
+        return `<div class="row"><h2 style="margin:0">Your salon is blooming.</h2><select style="width:auto" onchange="PD=+this.value;render()">${[7, 30, 90].map((n) => `<option value="${n}" ${PD === n ? "selected" : ""}>Last ${n} days</option>`).join("")}</select></div><div class="stats"><div class="card stat dk"><small>Total sales</small><b>${php(D.reduce((t, a) => t + rev(a), 0))}</b><small>Completed appointments</small></div><div class="card stat"><small>Appointments</small><b>${L.length}</b><small>${D.length} completed</small></div><div class="card stat"><small>Receptionist accounts</small><b>${DB.staff.filter((s) => s.on).length}</b><small>active of ${DB.staff.length}</small></div><div class="card stat"><small>Technicians today</small><b>${TE.filter((t) => t.on !== false && t.off !== w).length}</b><small>of ${TE.filter((t) => t.on !== false).length} on roster</small></div></div>
+<div class="card"><div class="row"><b>Reporting snapshot</b><a class="pr" style="cursor:pointer" onclick="go('rep')">Open reports →</a></div><p class="mute" style="margin:.4rem 0 0">Top service: <b>${tp ? (DB.SV.find((s) => s.id == tp[0]) || { n: "(removed)" }).n : "-"}</b> · Busiest hour: <b>${bh ? m2t(bh[0] * 60) : "-"}</b> · No-show rate: <b>${((ns / (L.length || 1)) * 100).toFixed(1)}%</b></p></div>`;
+      }
+      function orep() {
+        RG = RG || { f: dAgo(29), t: today() };
+        const L = DB.appts.filter((a) => inR(a, RG.f, RG.t)),
+          D = L.filter((a) => a.status === "completed"),
+          days = [];
+        for (
+          let d = new Date(RG.f + "T00:00");
+          fmt(d) <= RG.t && days.length < 120;
+          d.setDate(d.getDate() + 1)
+        )
+          days.push(fmt(d));
+        const v = days.map((d) =>
+            D.filter((a) => a.date === d).reduce((t, a) => t + rev(a), 0),
+          ),
+          mx = Math.max(...v, 1),
+          pts = v
+            .map(
+              (y, i) =>
+                `${((i / Math.max(v.length - 1, 1)) * 600 + 20).toFixed(1)},${(170 - (y / mx) * 150).toFixed(1)}`,
+            )
+            .join(" "),
+          pop = {},
+          hr = [...Array(10)].map(() => 0);
+        D.forEach((a) => {
+          a.items.forEach((i) => (pop[i] = (pop[i] || 0) + 1));
+          const h = Math.floor(a.start / 60) - 9;
+          if (h >= 0 && h < 10) hr[h]++;
+        });
+        const top = Object.entries(pop)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 6),
+          hm = Math.max(...hr, 1),
+          ns = L.filter((a) => a.status === "noshow").length;
+        return `<div class="row" style="justify-content:flex-start;margin-bottom:1rem"><label style="margin:0">From</label><input type="date" style="width:auto" value="${RG.f}" onchange="RG.f=this.value;finReload()"><label style="margin:0">To</label><input type="date" style="width:auto" value="${RG.t}" onchange="RG.t=this.value;finReload()"></div>
+${finCard()}<div class="g2"><div class="card"><div class="row"><b>Gross sales over time</b><b style="color:var(--deep)">${php(v.reduce((a, b) => a + b, 0))}</b></div><svg viewBox="0 0 640 190" style="width:100%" role="img" aria-label="Gross sales line chart"><polyline points="${pts}" fill="none" stroke="var(--deep)" stroke-width="2.5"/><text x="20" y="186" font-size="11" fill="var(--mute)">${RG.f}</text><text x="620" y="186" font-size="11" fill="var(--mute)" text-anchor="end">${RG.t}</text><text x="20" y="14" font-size="11" fill="var(--mute)">Peak ${php(mx)}</text></svg></div><div class="card stat"><small>No-show rate</small><b>${((ns / (L.length || 1)) * 100).toFixed(1)}%</b><small>${ns} of ${L.length} appointments</small></div></div>
+<div class="g2" style="grid-template-columns:1fr 1fr"><div class="card"><b>Busiest hours</b><div class="chart" style="height:120px;margin-top:.6rem">${hr.map((y) => `<i style="height:${(y / hm) * 100}%" title="${y}"></i>`).join("")}</div><div class="heat"><small>9a</small><small></small><small>11a</small><small></small><small>1p</small><small></small><small>3p</small><small></small><small>5p</small><small></small></div></div><div class="card"><b>Most popular services</b>${top.map((t, i) => `<div class="row" style="border-top:1px solid var(--line);padding:.45rem 0"><span><span class="mute">0${i + 1}</span> ${(DB.SV.find((s) => s.id == t[0]) || { n: "(removed)" }).n}</span><b>${t[1]}</b></div>`).join("") || '<p class="mute">No data in this range.</p>'}</div></div>`;
+      }
+      const X = (id) => DB.SV.find((s) => s.id === id),
+        pm = (v) => {
+          const [h, m] = String(v || "0:0")
+            .split(":")
+            .map(Number);
+          return Math.round(((h || 0) * 60 + (m || 0)) / 30) * 30;
+        };
+      async function setH(k, v) {
+        const n = { ...DB.hours, [k]: pm(v) };
+        if (!(n.o < n.c && n.ls >= n.o && n.ls <= n.le && n.le <= n.c)) {
+          HE = "Opening must be before closing, and lunch must fall inside opening hours.";
+          return render();
+        }
+        HE = "";
+        try { await FN.saveSettings({ open_min: n.o, close_min: n.c, lunch_start_min: n.ls, lunch_end_min: n.le }); DB.hours = n; }
+        catch (e) { fail(e); }
+        render();
+      }
+      const tm = (l, v, k) =>
+        `<div><label>${l}</label><input type="time" step="1800" value="${hhmm(v)}" onchange="setH('${k}',this.value)"></div>`;
+      async function togDay(d, on) {
+        const set = new Set(DB.openDays);
+        on ? set.add(d) : set.delete(d);
+        const days = [...set].sort((a, b) => a - b);
+        try { await FN.saveSettings({ open_days: days }); DB.openDays = days; } catch (e) { fail(e); }
+        render();
+      }
+      const svRow = (s) => {
+        const i = (f, v, t = "number") =>
+          `<td><input type="${t}" min="0" value="${esc(v)}" onchange="svSet(${s.id},'${f}',this.value)" aria-label="${f}"></td>`;
+        return `<tr style="${s.on === false ? "opacity:.55" : ""}"><td><img class="svt" src="${svImg(s)}" alt="Illustration for ${esc(s.n)}" loading="lazy"></td>${i("n", s.n, "text")}<td><select onchange="svSet(${s.id},'g',this.value)">${GR.map((g) => `<option ${g === s.g ? "selected" : ""}>${g}</option>`).join("")}</select></td>${i("p", s.p)}${i("px", s.px)}${i("d", s.d)}${i("dx", s.dx)}<td>${s.on === false ? `<small>Inactive</small> <button class="btn sm w" onclick="svActive(${s.id},true)">Reactivate</button> ` : ""}<button class="btn sm w" onclick="askRm(${s.id})">Remove</button></td></tr>`
+      };
+      const fail = (e) => toast((e && e.message) || "Something went wrong.");
+      async function svSet(id, f, v) {
+        const s = X(id), old = { ...s };
+        s[f] = ["n", "g"].includes(f) ? String(v).trim() || s[f] : Math.max(0, +v || 0);
+        if (s.px && s.px < s.p) s.px = s.p;
+        if (s.dx && s.dx < s.d) s.dx = s.d;
+        if (!s.d) s.d = old.d || 30;
+        const cat = DB.CATS.find((c) => c.name === s.g);
+        try {
+          await FN.updateService(id, { name: s.n, category_id: cat.id, price: s.p, price_max: s.px || null, duration_min: s.d, duration_max: s.dx || null });
+        } catch (e) { Object.assign(s, old); fail(e); }
+        render();
+      }
+      async function svActive(id, on) {
+        try { await FN.updateService(id, { active: on }); X(id).on = on; } catch (e) { fail(e); }
+        render();
+      }
+      async function addSv() {
+        try {
+          await FN.insertService({ category_id: DB.CATS[0].id, name: "New service", price: 0, duration_min: 30, detail: "", active: true, sort_order: Math.max(0, ...DB.SV.map((s) => s.id)) + 1 });
+          await loadCatalogData();
+        } catch (e) { fail(e); }
+        render();
+      }
+      const askRm = (id) => {
+        const s = X(id),
+          u = DB.appts.some((a) => (a.items || []).includes(id));
+        modal(
+          `<h3>${u ? "Deactivate" : "Remove"} ${esc(s.n)}?</h3><p>${u ? "This service appears in past appointments, so it will be deactivated instead of deleted. Customers and staff will no longer see it. Past records keep its original name and price." : "This service will be deleted from the price list."}</p>${MF(`<button class="btn w" onclick="modal()">Cancel</button><button class="btn" onclick="rmSv(${id})">${u ? "Deactivate" : "Remove"}</button>`)}`,
+        );
+      };
+      async function rmSv(id) {
+        const used = DB.appts.some((a) => (a.items || []).includes(id));
+        try {
+          if (used) { await FN.updateService(id, { active: false }); X(id).on = false; }
+          else { await FN.deleteService(id); DB.SV.splice(DB.SV.indexOf(X(id)), 1); }
+        } catch (e) { fail(e); }
+        modal();
+        render();
+      }
+      function ohs() {
+        const H = DB.hours;
+        return `<div class="card" style="margin-bottom:1rem"><b>Operating hours</b><div class="cards" style="grid-template-columns:repeat(4,1fr)">${tm("Opens", H.o, "o")}${tm("Closes", H.c, "c")}${tm("Lunch starts", H.ls, "ls")}${tm("Lunch ends", H.le, "le")}</div>${HE ? `<div class="msg">${HE}</div>` : ""}<small>Times use 30-minute steps.</small><label>Open days</label><div class="row" style="justify-content:flex-start;gap:1.2rem">${[1, 2, 3, 4, 5, 6, 0].map((d) => `<label style="display:inline-flex;gap:.3rem;align-items:center;margin:0;font-weight:400"><input type="checkbox" style="width:auto" ${DB.openDays.includes(d) ? "checked" : ""} onchange="togDay(${d},this.checked)">${DN[d]}</label>`).join("")}</div></div>
+<div class="card" style="margin-bottom:1rem"><b>Days off</b><div class="row" style="justify-content:flex-start;margin:.5rem 0"><input type="date" id="do" style="width:auto"><button class="btn sm" onclick="addOff()">Add day off</button></div><div class="chips">${
+          [...DB.off]
+            .sort()
+            .map(
+              (d) =>
+                `<span class="chip">${d} <a style="cursor:pointer" onclick="rmOff('${d}')" aria-label="Remove ${d}">×</a></span>`,
+            )
+            .join("") ||
+          "<small>No days off set. Customers cannot book on days off or on closed days.</small>"
+        }</div></div>
+<div class="row"><h3 style="margin:1rem 0 .4rem">Price list</h3><button class="btn sm" onclick="addSv()">+ Add service</button></div><div class="card"><div class="tbl"><table style="min-width:1000px"><tr><th>Preview</th><th>Name</th><th>Group</th><th>Price</th><th>Max price</th><th>Minutes</th><th>Max min</th><th></th></tr>${DB.SV.map(svRow).join("")}</table></div><small>Max price and max minutes: 0 means no range.</small></div>`;
+      }
+      async function addOff() {
+        const v = $("#do").value;
+        if (v && !DB.off.includes(v)) {
+          try { await FN.addDayOff(v); DB.off.push(v); } catch (e) { fail(e); }
+          render();
+        }
+      }
+      async function rmOff(d) {
+        try { await FN.removeDayOff(d); DB.off = DB.off.filter((x) => x !== d); } catch (e) { fail(e); }
+        render();
+      }
+      const DW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      function oteam() {
+        return `<div class="row"><h3 style="margin:0">Receptionist-manager accounts</h3><button class="btn sm" onclick="acc('')">+ Add staff account</button></div><div class="card" style="margin:.6rem 0 1.4rem"><div class="tbl"><table><tr><th>Name</th><th>Email</th><th>Status</th><th></th></tr>${DB.staff.map((s) => `<tr><td>${esc(s.name)}</td><td>${esc(s.user)}</td><td>${s.on ? "Active" : "Inactive"}</td><td><button class="btn sm w" onclick="acc('${s.id}')">Edit name</button> <button class="btn sm w" onclick="staffActive('${s.id}',${s.on ? "false" : "true"})">${s.on ? "Deactivate" : "Activate"}</button></td></tr>`).join("") || '<tr><td colspan="4">No staff accounts yet.</td></tr>'}</table></div></div>
+<div class="row"><h3 style="margin:0">Nail technicians</h3><button class="btn sm" onclick="addTech()">+ Add technician</button></div><p class="mute">Technicians are records only. They do not have logins; receptionists assign them to appointments.</p><div class="card"><div class="tbl"><table><tr><th>Name</th><th>Specialty</th><th>Weekly day off</th><th>Commission %</th><th>Status</th></tr>${TE.map((t) => `<tr style="${t.on === false ? "opacity:.55" : ""}"><td><input value="${esc(t.n)}" onchange="techSet(${t.id},'n',this.value)"></td><td><input value="${esc(t.sp)}" onchange="techSet(${t.id},'sp',this.value)"></td><td><select onchange="techSet(${t.id},'off',this.value)"><option value="" ${t.off == null ? "selected" : ""}>None</option>${DW.map((d, i) => `<option value="${i}" ${t.off === i ? "selected" : ""}>${d}</option>`).join("")}</select></td><td><input type="number" min="0" max="100" step="1" style="width:90px" value="${Math.round((t.rate ?? 0.3) * 100)}" onchange="techSet(${t.id},'rate',this.value)"></td><td><button class="btn sm w" onclick="techSet(${t.id},'on',${t.on === false ? "true" : "false"})">${t.on === false ? "Activate" : "Deactivate"}</button></td></tr>`).join("")}</table></div><small>Commission is saved on each sale at the time it is made, so changing a rate never alters past reports.</small></div>`;
+      }
+      async function techSet(id, f, v) {
+        const t = TE.find((x) => x.id === id), old = { ...t };
+        if (f === "n") t.n = String(v).trim() || t.n;
+        else if (f === "sp") t.sp = String(v).trim();
+        else if (f === "off") t.off = v === "" ? null : +v;
+        else if (f === "rate") t.rate = Math.min(1, Math.max(0, (+v || 0) / 100));
+        else if (f === "on") t.on = v;
+        try {
+          await FN.updateTechnician(id, { name: t.n, specialty: t.sp, day_off: t.off, commission_rate: t.rate, active: t.on !== false });
+        } catch (e) { Object.assign(t, old); fail(e); }
+        render();
+      }
+      async function addTech() {
+        try { await FN.insertTechnician({ name: "New technician", specialty: "", day_off: null }); await loadCatalogData(); } catch (e) { fail(e); }
+        render();
+      }
+      function acc(id) {
+        const s = DB.staff.find((x) => x.id === id);
+        modal(
+          s
+            ? `<h3>Edit staff name</h3>${fld("ac_n", "Full name", "text", s.name)}<p class="mute">${esc(s.user)}</p><div id="ae"></div>${MF(`<button class="btn w" onclick="modal()">Cancel</button><button class="btn" onclick="saveAcc('${id}')">Save</button>`)}`
+            : `<h3>Add staff account</h3><p class="mute">The person must first create an account by signing up on the customer site with their email. Enter that email here to give them staff access.</p>${fld("ac_e", "Their email", "email", "")}<div id="ae"></div>${MF(`<button class="btn w" onclick="modal()">Cancel</button><button class="btn" onclick="saveAcc('')">Add staff</button>`)}`,
+        );
+      }
+      const ERRS = { NO_ACCOUNT_FOR_EMAIL: "No account with that email yet. Ask them to sign up on the customer site first.", ALREADY_OWNER: "That account is an owner account." };
+      async function saveAcc(id) {
+        try {
+          if (id) {
+            const n = $("#ac_n").value.trim();
+            if (!n) return ($("#ae").innerHTML = '<div class="msg">Enter a name.</div>');
+            await FN.renameProfile(id, n);
+          } else {
+            const e = $("#ac_e").value.trim();
+            if (!/^\S+@\S+\.\S+$/.test(e)) return ($("#ae").innerHTML = '<div class="msg">Enter a valid email.</div>');
+            await FN.addStaffByEmail(e);
+          }
+          await loadStaff(); modal(); render();
+        } catch (e) {
+          const k = Object.keys(ERRS).find((x) => (e.code || e.message || "").includes(x));
+          $("#ae").innerHTML = `<div class="msg">${esc(k ? ERRS[k] : e.message)}</div>`;
+        }
+      }
+      async function staffActive(id, on) {
+        try { await FN.setStaffActive(id, on); await loadStaff(); } catch (e) { fail(e); }
+        render();
+      }
+      const linesOf = (a) =>
+        a.lines && a.lines.length
+          ? a.lines
+          : [{ n: a.svc, p: a.sub ?? a.price, tech: a.staff }];
+      function cmRows() {
+        CM.f = CM.f || dAgo(29);
+        CM.e = CM.e || today();
+        return DB.appts
+          .filter((a) => a.status === "completed" && inR(a, CM.f, CM.e))
+          .flatMap((a) =>
+            linesOf(a)
+              .filter((l) => l.tech === CM.t)
+              .map((l) => ({
+                date: a.date,
+                code: a.rno || a.code,
+                svc: l.n,
+                base: l.p,
+                c: l.p * (l.rate ?? 0.1),
+                k: key(a),
+              })),
+          )
+          .sort((a, b) => a.k.localeCompare(b.k));
+      }
+      function ocomm() {
+        const L = cmRows(),
+          tot = L.reduce((t, r) => t + r.c, 0);
+        return `<div class="row noprint" style="justify-content:flex-start;margin-bottom:1rem"><select style="width:auto" onchange="CM.t=+this.value;render()">${TE.map((t) => `<option value="${t.id}" ${CM.t === t.id ? "selected" : ""}>${esc(t.n)}</option>`).join("")}</select><input type="date" style="width:auto" value="${CM.f}" onchange="CM.f=this.value;render()"><input type="date" style="width:auto" value="${CM.e}" onchange="CM.e=this.value;render()"><button class="btn w" onclick="csv()">Export CSV</button><button class="btn" onclick="print()">Print Report</button></div>
+<div class="card"><b>Commission report: ${esc(te(CM.t))}</b><br><small>${CM.f} to ${CM.e} · Each technician's commission rate (saved when the sale was made), on the price before VAT. Refunded and voided bills are excluded.</small><div class="tbl"><table><tr><th>Date</th><th>Receipt</th><th>Service</th><th>Amount (before VAT)</th><th>Commission</th></tr>${L.map((r) => `<tr><td>${r.date}</td><td>${r.code}</td><td>${esc(r.svc)}</td><td>${php(r.base)}</td><td>${php(r.c)}</td></tr>`).join("") || '<tr><td colspan="5">No completed service lines in this range.</td></tr>'}<tr><th colspan="4">Total commission</th><th>${php(tot)}</th></tr></table></div></div>`;
+      }
+      function csv() {
+        const t =
+          "Date,Receipt,Service,Amount before VAT,Commission\n" +
+          cmRows()
+            .map(
+              (r) =>
+                `${r.date},${r.code},"${r.svc}",${r.base},${r.c.toFixed(2)}`,
+            )
+            .join("\n");
+        if (
+          dl(
+            `commission-${te(CM.t).replace(/\W+/g, "-")}-${CM.f}-to-${CM.e}.csv`,
+            t,
+            "text/csv",
+          )
+        )
+          return toast("CSV downloaded");
+        modal(
+          `<h3>Export CSV</h3><p class="mute">The download was blocked. Copy this text into a .csv file instead.</p><textarea id="cv" style="width:100%;height:200px;font:12px monospace" readonly>${esc(t)}</textarea>${MF(`<button class="btn w" onclick="modal()">Close</button><button class="btn" onclick="$('#cv').select();try{document.execCommand('copy')}catch(e){}">Copy</button>`)}`,
+        );
+      }
+      const toast = (m) => {
+        const d = document.createElement("div");
+        d.className = "toast noprint";
+        d.textContent = m;
+        document.body.appendChild(d);
+        setTimeout(() => d.remove(), 2600);
+      };
+      function obk() {
+        const b = DB.backup;
+        return `<div class="card" style="max-width:480px"><b>Backup</b><p>Status: <b style="color:${b ? "var(--deep)" : "var(--red)"}">${b ? "Exported" : "No export yet"}</b><br><small>${b ? "Last export " + new Date(b.t).toLocaleString() : "No export has been made in this session."}</small></p><button class="btn" onclick="doBk()">Export data now</button><p class="mute" style="margin-bottom:0">Downloads a JSON file with services, technicians, settings, appointments, sales, payments and refunds. Your data lives in Supabase, which also keeps its own backups. Keep this file somewhere private.</p></div>`;
+      }
+      async function doBk() {
+        try {
+          const d = await FN.exportAll();
+          DB.backup = { t: Date.now() };
+          toast(dl(`fairytale-backup-${fmt(new Date())}.json`, JSON.stringify(d, null, 1), "application/json") ? "Export downloaded" : "The file download was blocked");
+        } catch (e) { fail(e); }
+        render();
+      }
+      function oappts() {
+        let L = [...DB.appts];
+        const q = F.q.toLowerCase();
+        if (F.s) L = L.filter((a) => a.status === F.s);
+        if (q)
+          L = L.filter((a) =>
+            (a.name + a.svc + a.code).toLowerCase().includes(q),
+          );
+        L.sort((a, b) => key(b).localeCompare(key(a)));
+        return `<div class="row" style="justify-content:flex-start;margin-bottom:.8rem"><input style="max-width:240px" placeholder="Search" value="${esc(F.q)}" onchange="F.q=this.value;render()"><select style="max-width:200px" onchange="F.s=this.value;render()"><option value="">All statuses</option>${Object.keys(
+          LB,
+        )
+          .map(
+            (k) =>
+              `<option value="${k}" ${F.s === k ? "selected" : ""}>${LB[k]}</option>`,
+          )
+          .join(
+            "",
+          )}</select></div><div class="card"><div class="tbl"><table><tr><th>When</th><th>Customer</th><th>Service</th><th>Technician</th><th>Station</th><th>Status</th><th></th></tr>${L.slice(
+          0,
+          200,
+        )
+          .map(
+            (a) =>
+              `<tr><td>${a.date}<br><small>${m2t(a.start)}</small></td><td>${esc(a.name)}</td><td>${a.svc}</td><td>${te(a.staff)}</td><td>${a.station || "-"}</td><td>${pill(a.status)}</td><td><button class="btn sm w" onclick="showH('${a.id}')">History</button></td></tr>`,
+          )
+          .join(
+            "",
+          )}</table></div>${L.length > 200 ? "<small>Showing the latest 200.</small>" : ""}</div>`;
+      }
+      function otx() {
+        const L = DB.appts
+          .filter((a) => ["completed", "refunded", "voided"].includes(a.status) && a.total != null)
+          .sort((a, b) => key(b).localeCompare(key(a)))
+          .slice(0, 300);
+        const pend = REF.length
+          ? `<div class="card" style="margin-bottom:1rem;border-color:var(--red)"><b>Refunds waiting for you</b><div class="tbl"><table><tr><th>Requested</th><th>Reason</th><th>Amount</th><th>Status</th><th></th></tr>${REF.map((r) => `<tr><td>${new Date(r.created_at).toLocaleDateString()}</td><td>${esc(r.reason)}</td><td>${php(r.amount)}</td><td>${esc(r.status)}</td><td>${r.status === "requested" || r.status === "failed" ? `<button class="btn sm" onclick="apprRef('${r.id}')">${r.status === "failed" ? "Retry" : "Approve"}</button>` : ""}</td></tr>`).join("")}</table></div></div>`
+          : "";
+        return `${pend}<div class="card"><div class="tbl"><table><tr><th>Date</th><th>Receipt</th><th>Customer</th><th>Method</th><th>Total</th><th>Handled by</th><th>Status</th><th></th></tr>${L.map((a) => `<tr><td>${a.date}</td><td>${esc(a.rno || a.code)}</td><td>${esc(a.name)}</td><td>${esc(a.method || "-")}</td><td>${php(a.total)}</td><td>${esc(a.by || "-")}</td><td>${pill(a.status)}</td><td>${a.status === "completed" ? `<button class="btn sm w" onclick="refundDlg('${a.id}')">Refund</button>` : ""}</td></tr>`).join("") || '<tr><td colspan="8">No transactions yet.</td></tr>'}</table></div><small>Latest 300 transactions. Deposits and balances are separate payments; refunds need your approval.</small></div>`;
+      }
+      function refundDlg(id) {
+        const a = DB.appts.find((x) => x.id === id),
+          P = (a.pays || []).filter((p) => ["paid", "partially_refunded"].includes(p.status));
+        if (!P.length) return toast("No refundable payment on this sale.");
+        modal(
+          `<h3>Refund ${esc(a.rno || a.code)}</h3><label>Payment to refund</label><select id="rf_p">${P.map((p) => `<option value="${p.id}" data-amt="${p.amount}">${p.kind} · ${esc(p.method)} · ${php(p.amount)}</option>`).join("")}</select><label>Amount</label><input id="rf_a" type="number" min="1" step="0.01" value="${P[0].amount}"><label>Reason</label><input id="rf_r" placeholder="Why is this being refunded?"><div id="ae"></div>${MF(`<button class="btn w" onclick="modal()">Cancel</button><button class="btn" onclick="refundGo()">Refund</button>`)}`,
+        );
+        $("#rf_p").onchange = (e) => ($("#rf_a").value = e.target.selectedOptions[0].dataset.amt);
+      }
+      async function refundGo() {
+        const amt = +$("#rf_a").value, why = $("#rf_r").value.trim();
+        if (!(amt > 0) || why.length < 3) return ($("#ae").innerHTML = '<div class="msg">Enter an amount and a reason.</div>');
+        try {
+          const r = await FN.requestRefund($("#rf_p").value, amt, why);
+          await FN.approveRefund(r.id);
+          await Promise.all([loadAppts(), loadRefunds()]); FINK = ""; modal(); toast("Refund recorded"); render();
+        } catch (e) { $("#ae").innerHTML = `<div class="msg">${esc(e.message)}</div>`; }
+      }
+      async function apprRef(id) {
+        try { await FN.approveRefund(id); await Promise.all([loadAppts(), loadRefunds()]); FINK = ""; toast("Refund approved"); } catch (e) { fail(e); }
+        render();
+      }
+      function ocust() {
+        const m = {};
+        DB.appts.forEach((a) => {
+          const c = (m[a.name + "|" + a.phone] = m[a.name + "|" + a.phone] || {
+            n: a.name,
+            p: a.phone || "-",
+            s: {},
+            l: "",
+            x: "",
+          });
+          if (a.status === "completed") {
+            a.items.forEach((i) => (c.s[i] = (c.s[i] || 0) + 1));
+            if (a.date > c.l) c.l = a.date;
+          }
+          if (
+            ["confirmed", "waiting"].includes(a.status) &&
+            a.date >= today() &&
+            (!c.x || a.date < c.x)
+          )
+            c.x = a.date;
+        });
+        const q = F.c.toLowerCase(),
+          L = Object.values(m)
+            .filter((c) => (c.n + c.p).toLowerCase().includes(q))
+            .sort((a, b) => a.n.localeCompare(b.n));
+        return `<input style="max-width:280px;margin-bottom:.8rem" placeholder="Search name or phone" value="${esc(F.c)}" onchange="F.c=this.value;render()"><div class="card"><div class="tbl"><table><tr><th>Customer</th><th>Phone</th><th>Most availed</th><th>Last</th><th>Next</th></tr>${L.map(
+          (c) =>
+            `<tr><td><b>${esc(c.n)}</b></td><td>${esc(c.p)}</td><td>${
+              Object.entries(c.s)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 2)
+                .map((e) => (DB.SV.find((s) => s.id == e[0]) || { n: "(removed)" }).n)
+                .join(", ") || "-"
+            }</td><td>${c.l || "-"}</td><td>${c.x || "-"}</td></tr>`,
+        ).join("")}</table></div></div>`;
+      }
+      const plHTML = () =>
+        `<section class="sec"><div class="wrap" style="max-width:420px"><div class="lg" style="width:56px;height:56px;font-size:2rem;margin:0 auto 1rem">f</div><div class="card auth"><h2 style="text-align:center">${V === "owner" ? "Owner" : "Staff"} sign in</h2><p class="mute" style="text-align:center">Sign in to manage Fairytale Nails Salon.</p>${fld("lu", "Username or email").replace("<input", '<input autocomplete="username" autocapitalize="none"')}<label for="lp">Password</label><div class="pwrow"><input id="lp" type="password" autocomplete="current-password" onkeydown="if(event.key==='Enter')plog()" placeholder="Enter your password"><button class="eye" type="button" onclick="togglePassword('lp',this)">Show</button></div><div id="le"></div><p><button class="btn" style="width:100%" onclick="plog()">Sign in</button></p>${DEMO ? `<small>Demo: ${V === "owner" ? "owner / owner123" : "mika / staff123 or paolo / staff123"}</small>` : ""}</div></div></section>`;
+      async function plog() {
+        const u = $("#lu").value.trim(), p = $("#lp").value;
+        if (!u || !p) return ($("#le").innerHTML = '<div class="msg">Enter your username or email and password.</div>');
+        try {
+          await FN.signIn(u, p);
+          if (!(await FN.requirePortalRole("owner"))) return ($("#le").innerHTML = '<div class="msg">That account is not an owner account.</div>');
+          await afterLogin();
+          render();
+        } catch (e) { $("#le").innerHTML = `<div class="msg">${esc(e.message)}</div>`; }
+      }
+      async function doSignOut() {
+        if (unwatch) unwatch(); unwatch = null;
+        await FN.signOut(); OW = 0; OWNP = null; DB.appts = []; render();
+      }
+      const PG = () => ({
+        dash: odash,
+        appts: oappts,
+        cust: ocust,
+        tx: otx,
+        rep: orep,
+        hs: ohs,
+        team: oteam,
+        comm: ocomm,
+        bk: obk,
+      });
+      function render() {
+        const logo =
+          '<span class="logo" onclick="go(\'dash\')"><span class="lg">f</span><span><i>fairytale</i><small>NAILS SALON</small></span></span>';
+        const o = V === "owner";
+        if (o ? !OW : !ST) {
+          $("#app").innerHTML = plHTML();
+          return;
+        }
+        const nm = o ? OWNR().name || OWNR().user : ST.name,
+          pg = (PG()[P] || PG().dash)();
+        $("#app").innerHTML =
+          `<div class="shell"><aside class="noprint">${logo}<small style="margin:1rem 0 .4rem;letter-spacing:.12em">${o ? "OWNER" : "STAFF"} PORTAL</small>${NAVS[V].map(([k, l]) => `<div class="nv ${P === k ? "on" : ""}" onclick="go('${k}')">${l}</div>`).join("")}<div class="me"><span class="lg" style="font:600 .8rem Poppins">${nm
+            .split(" ")
+            .map((x) => x[0])
+            .join(
+              "",
+            )}</span><span><b>${nm}</b><br><small>${o ? "Salon Owner" : "Receptionist-manager"}</small><br><a class="pr" style="cursor:pointer;font-size:.75rem" onclick="doSignOut()">Sign out</a></span></div></aside><section><div class="bar noprint"><div><span class="ttl" style="font-size:1.4rem">${NAVS[V].find((x) => x[0] === P)[1]}</span><br><small>${new Date().toLocaleDateString("en", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}</small></div><span><small>Signed in as</small> <b>${nm}</b></span></div><div class="pad">${pg}</div></section></div>`;
+      }
+
+      /* ================= Supabase data layer ================= */
+      let FIN = null, FINK = "", REF = [], unwatch = null;
+      const manila = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Manila", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+      function mapAppt(r, names) {
+        const p = Object.fromEntries(manila.formatToParts(new Date(r.start_at)).map((x) => [x.type, x.value])),
+          dur = Math.round((new Date(r.end_at) - new Date(r.start_at)) / 6e4),
+          it = r.appointment_items || [],
+          sale = Array.isArray(r.sales) ? r.sales[0] : r.sales,
+          lines = sale ? (sale.sale_items || []).map((l) => ({ n: l.name, p: +l.unit_price * l.quantity, tech: l.technician_id, rate: +l.commission_rate, sid: l.service_id })) : [],
+          paid = (r.payments || []).filter((x) => ["paid", "partially_refunded", "refunded"].includes(x.status)),
+          lo = it.reduce((t, i) => t + +i.unit_price, 0);
+        return {
+          id: r.id, code: r.code, name: r.customer_name, phone: r.customer_phone || "", email: r.customer_email,
+          items: (lines.length ? lines.map((l) => l.sid) : it.map((i) => i.service_id)).filter((x) => x != null),
+          svc: (lines.length ? lines.map((l) => l.n) : it.map((i) => i.name)).join(", "),
+          date: `${p.year}-${p.month}-${p.day}`, start: +p.hour * 60 + +p.minute, dur,
+          price: lo, sub: sale ? +sale.subtotal : undefined, total: sale ? +sale.total : undefined,
+          status: r.status === "held" ? "pending" : r.status, staff: r.technician_id || 0, station: r.station_id || 0,
+          lines, rno: sale ? sale.receipt_no : "", saleId: sale ? sale.id : null,
+          method: [...new Set(paid.map((x) => x.method))].join(", "), by: sale && names[sale.created_by] ? names[sale.created_by] : "",
+          pays: r.payments || [], hist: [], walkin: r.is_walkin,
+        };
+      }
+      async function loadAppts(quiet) {
+        const api = quiet ? FN.raw || FN : FN;
+        const rows = await api.ownerAppointments(dAgo(365), fmt(new Date(Date.now() + 90 * 864e5)));
+        const ids = [...new Set(rows.map((r) => (Array.isArray(r.sales) ? r.sales[0] : r.sales)).filter(Boolean).map((x) => x.created_by).filter(Boolean))];
+        const names = await api.profileNames(ids);
+        DB.appts = rows.map((r) => mapAppt(r, names));
+      }
+      async function loadStaff() {
+        DB.staff = (await FN.listStaff()).map((x) => ({ id: x.user_id, name: x.full_name || x.email, user: x.email, on: x.active ? 1 : 0 }));
+      }
+      const loadRefunds = async (quiet) => (REF = await (quiet ? FN.raw || FN : FN).pendingRefunds());
+      async function loadCatalogData() {
+        const c = await FN.loadCatalog();
+        GR.splice(0, GR.length, ...c.GR);
+        Object.keys(GN).forEach((k) => delete GN[k]);
+        Object.assign(GN, c.GN);
+        DB.SV = c.SV; DB.CATS = c.raw.cats;
+        TE.splice(0, TE.length, ...c.raw.techs.map((t) => ({ id: t.id, n: t.name, sp: t.specialty, off: t.day_off, rate: +t.commission_rate, on: t.active })));
+        DB.hours = c.hours; DB.openDays = c.openDays; DB.off = c.off;
+        tab = GR[0];
+      }
+      async function afterLogin() {
+        const p = await FN.myProfile();
+        OWNP = { name: p.full_name || p.username || p.email, user: p.username || p.email };
+        OW = 1;
+        await Promise.all([loadCatalogData(), loadAppts(), loadStaff(), loadRefunds()]);
+        if (unwatch) unwatch();
+        unwatch = FN.watchOwnerBoard(async () => {
+          await Promise.all([loadAppts(true), loadRefunds(true)]); // background refresh: no loading screen
+          FINK = "";
+          if (P === "rep") { try { const k = RG.f + "|" + RG.t; FIN = await (FN.raw || FN).dashboard(RG.f, RG.t); FINK = k; } catch (e) {} }
+          if (OW && !$("#md").innerHTML && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) render();
+        });
+      }
+      async function boot() {
+        $("#app").innerHTML = ""; // the loading screen is already covering the page
+        try {
+          if ((await FN.currentUser()) && (await FN.requirePortalRole("owner"))) await afterLogin();
+        } catch (e) {
+          console.error(e);
+          $("#app").innerHTML = '<p style="text-align:center;padding:5rem 1rem">Could not reach the salon system. <a class="pr" style="cursor:pointer" onclick="boot()">Try again</a></p>';
+          window.Loader && Loader.endInitial();
+          return;
+        }
+        render();
+        window.Loader && Loader.endInitial(); // reveal only after the first screen is fully rendered
+      }
+      async function loadFin() {
+        const k = RG.f + "|" + RG.t;
+        try { const d = await FN.dashboard(RG.f, RG.t); if (FINK === k) FIN = d; } catch (e) { if (FINK === k) FIN = { error: e.message }; }
+        if (FINK === k && P === "rep" && !$("#md").innerHTML) render();
+      }
+      function finReload() { FINK = ""; render(); }
+      function finCard() {
+        const k = RG.f + "|" + RG.t;
+        if (FINK !== k) { FINK = k; FIN = null; loadFin(); }
+        if (!FIN) return '<div class="card" style="margin-bottom:1rem"><small>Loading financial summary...</small></div>';
+        if (FIN.error) return `<div class="card" style="margin-bottom:1rem"><div class="msg">${esc(FIN.error)}</div></div>`;
+        const net = +FIN.deposits_received + +FIN.balance_payments - +FIN.refunds,
+          box = (l, v, n) => `<div class="card stat"><small>${l}</small><b>${php(v)}</b>${n ? `<small>${n}</small>` : ""}</div>`;
+        const meth = Object.entries(FIN.by_method || {}).map(([m, v]) => `<div class="row"><span>${esc(m)}</span><b>${php(v)}</b></div>`).join("") || '<small>No payments in this range.</small>';
+        return `<div class="stats" style="margin-bottom:1rem">${box("Net collected", net, "deposits + balances − refunds")}${box("Sales total", FIN.sales_total, FIN.completed_sales + " completed sales, incl. tax")}${box("Deposits received", FIN.deposits_received, "")}${box("Balance payments", FIN.balance_payments, "")}${box("Refunds", FIN.refunds, "")}${box("Outstanding balances", FIN.outstanding_balance, "unpaid open invoices")}${box("Forfeited deposits", FIN.forfeited_deposits, "cancelled / no-show")}${box("Tax collected", FIN.tax_collected, "")}</div><div class="card" style="margin-bottom:1rem"><b>Payments by method</b>${meth}</div>`;
+      }
+      FNready.then(boot);
+    </script>
+  </body>
+</html>

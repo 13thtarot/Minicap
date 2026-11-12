@@ -1,0 +1,15 @@
+project_id = "fairytale-nails"
+
+# The PayMongo webhook is called by PayMongo (no Supabase JWT). It is protected by HMAC signature
+# verification inside the function instead.
+[functions.paymongo-webhook]
+verify_jwt = false
+
+[functions.create-checkout]
+verify_jwt = true
+
+[functions.admin-create-staff]
+verify_jwt = true
+
+[functions.process-refund]
+verify_jwt = true
